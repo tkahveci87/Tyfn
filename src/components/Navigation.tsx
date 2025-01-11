@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
 const menuItems = [
+  { name: 'Anasayfa', href: '/' },
   { name: 'Hakkımda', href: '#about' },
   { name: 'Misyon & Vizyon', href: '#mission' },
   { name: 'Blog', href: '#blog' },
@@ -21,6 +22,14 @@ export default function Navigation() {
   const handleClick = () => {
     setIsOpen(false)
     document.body.style.overflow = 'unset'
+  }
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+    handleClick()
   }
 
   return (
@@ -86,6 +95,7 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
+                  onClick={item.href === '/' ? handleHomeClick : undefined}
                   className="relative text-white/80 hover:text-white font-space text-sm tracking-wider transition-all duration-300 py-2 px-1 group"
                 >
                   {item.name}
@@ -154,7 +164,7 @@ export default function Navigation() {
                   >
                     <Link
                       href={item.href}
-                      onClick={handleClick}
+                      onClick={item.href === '/' ? handleHomeClick : handleClick}
                       className="relative text-white/80 hover:text-white font-space text-3xl tracking-wider group"
                     >
                       {item.name}
