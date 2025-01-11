@@ -9,7 +9,7 @@ export default function Services() {
   const services: Service[] = [
     {
       title: 'Web Geliştirme',
-      description: 'Modern ve responsive web siteleri geliştirme hizmeti'
+      description: 'Modern ve özelleştirilmiş web uygulamaları geliştirme'
     },
     {
       title: 'Teknik Danışmanlık',

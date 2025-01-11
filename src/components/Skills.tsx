@@ -7,7 +7,8 @@ interface Skill {
 
 export default function Skills() {
   const skills: Skill[] = [
-    { name: 'Web Geliştirme', level: '95%' },
+    { name: 'Frontend Geliştirme', level: '95%' },
+    { name: 'Backend Geliştirme', level: '85%' },
     { name: 'Mobil Uygulama', level: '85%' },
     { name: 'Veri Analizi', level: '90%' },
     { name: 'Siber Güvenlik', level: '80%' }
