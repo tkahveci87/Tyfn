@@ -23,7 +23,7 @@ export default function Hero() {
         className="container mx-auto px-4 text-center text-white relative z-10 mt-40 md:mt-52"
       >
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-red-500/10 via-transparent to-transparent blur-3xl -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-red-500/20 via-transparent to-transparent blur-3xl -z-10" />
         
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -38,8 +38,10 @@ export default function Hero() {
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 font-space tracking-tight"
           >
             <span className="relative inline-block">
-              <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-800 blur-2xl opacity-30" />
-              <span className="relative bg-gradient-to-r from-white to-white/90 text-transparent bg-clip-text">
+              {/* İsim için arka plan glow efekti */}
+              <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-800 blur-3xl opacity-40" />
+              <span className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-900 blur-xl opacity-40" />
+              <span className="relative bg-gradient-to-r from-white via-white to-white/95 text-transparent bg-clip-text drop-shadow-2xl">
                 Tyfn Kahveci
               </span>
             </span>
@@ -65,13 +67,15 @@ export default function Hero() {
             href="#contact"
             className="group relative inline-flex items-center gap-2 px-8 py-4"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-red-800/80 to-red-900/80 rounded-xl backdrop-blur-sm border border-red-500/20 transition-all duration-300 group-hover:border-red-500/40 group-hover:from-red-700/80 group-hover:to-red-800/80" />
-            <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/20 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
-            <span className="relative text-lg font-semibold text-white">
+            {/* Buton için arka plan glow efektleri */}
+            <span className="absolute inset-0 bg-gradient-to-r from-red-800/90 to-red-900/90 rounded-xl backdrop-blur-sm border border-red-500/30 transition-all duration-300 group-hover:border-red-500/50" />
+            <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500/30 to-red-700/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
+            <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-600/20 to-red-800/20 blur-md" />
+            <span className="relative text-lg font-semibold text-white drop-shadow-lg">
               İletişime Geç
             </span>
             <motion.span
-              className="relative"
+              className="relative text-white/90"
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
@@ -88,10 +92,10 @@ export default function Hero() {
           >
             <motion.div
               className="w-0.5 h-24 relative overflow-hidden rounded-full"
-              style={{ background: 'rgba(255, 255, 255, 0.1)' }}
+              style={{ background: 'rgba(255, 255, 255, 0.15)' }}
             >
               <motion.div
-                className="absolute top-0 left-0 right-0 h-full bg-gradient-to-b from-red-500 to-red-700"
+                className="absolute top-0 left-0 right-0 h-full bg-gradient-to-b from-red-500 via-red-600 to-red-700"
                 animate={{
                   y: ['-100%', '100%'],
                 }}
@@ -102,7 +106,7 @@ export default function Hero() {
                 }}
               />
             </motion.div>
-            <div className="text-sm font-space tracking-wider text-white/60">
+            <div className="text-sm font-space tracking-wider text-white/70">
               KAYDIR
             </div>
           </motion.div>
