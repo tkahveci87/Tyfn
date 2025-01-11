@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function Logo() {
+  const { scrollY } = useScroll()
+  const [hasScrolled, setHasScrolled] = useState(false)
+
+  // Logo arka plan opacity'sini scroll pozisyonuna göre ayarla
+  const bgOpacity = useTransform(
+    scrollY,
+    [0, 100],
+    [0, 0.9]
+  )
+
+  useEffect(() => {
+    const updateScroll = () => {
+      setHasScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', updateScroll)
+    return () => window.removeEventListener('scroll', updateScroll)
+  }, [])
+
   return (
     <Link href="/">
       <motion.div 
@@ -11,6 +29,15 @@ export default function Logo() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
+        {/* Arka plan blur efekti */}
+        <motion.div
+          className="absolute inset-0 -m-2 rounded-xl backdrop-blur-md"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            opacity: bgOpacity
+          }}
+        />
+
         <div className="relative w-10 h-10">
           <motion.div
             className="absolute inset-0 bg-orange-500 rounded-lg group-hover:bg-orange-400 transition-colors"
@@ -36,9 +63,11 @@ export default function Logo() {
             TK
           </motion.div>
         </div>
-        <div className="font-space font-bold text-xl tracking-tight">
+        <div className="relative font-space font-bold text-xl tracking-tight">
           <span className="text-orange-500">T</span>
-          <span className="text-white/90">kahveci</span>
+          <span className={`transition-colors duration-300 ${hasScrolled ? 'text-white' : 'text-white/90'}`}>
+            kahveci
+          </span>
         </div>
       </motion.div>
     </Link>
