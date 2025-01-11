@@ -4,4 +4,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@layer base {
+  .font-space {
+    font-family: var(--font-space-grotesk);
+  }
+  
+  .font-poppins {
+    font-family: var(--font-poppins);
+  }
 } 

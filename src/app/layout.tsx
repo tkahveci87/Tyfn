@@ -1,9 +1,17 @@
-import { Inter } from 'next/font/google'
+import { Space_Grotesk, Poppins } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({ 
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-space-grotesk',
+})
+
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
 })
 
 export default function RootLayout({
@@ -12,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="tr" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+    <html lang="tr" className={`scroll-smooth ${spaceGrotesk.variable} ${poppins.variable}`}>
+      <body className={poppins.className}>{children}</body>
     </html>
   )
 } 

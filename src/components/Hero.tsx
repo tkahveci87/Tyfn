@@ -24,7 +24,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-100 to-white"
+          className="text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-100 to-white font-space tracking-tight"
         >
           Tyfn Kahveci
         </motion.h1>
