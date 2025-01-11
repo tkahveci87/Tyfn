@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 interface BlogPost {
   id: number
@@ -38,14 +39,38 @@ export default function Blog() {
     }
   ]
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+      },
+    }),
+  }
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Blog</h2>
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-center mb-12"
+        >
+          Blog
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map(post => (
-            <article 
-              key={post.id} 
+          {posts.map((post, index) => (
+            <motion.article 
+              key={post.id}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
               <div className="p-6">
@@ -69,7 +94,7 @@ export default function Blog() {
                   </Link>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

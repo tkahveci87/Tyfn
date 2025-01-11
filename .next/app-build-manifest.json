@@ -1,27 +1,36 @@
 {
   "pages": {
     "/_not-found": [
-      "static/chunks/webpack-364c1b1262e69496.js",
-      "static/chunks/fd9d1056-f76b5d13a7ed26bc.js",
-      "static/chunks/69-f8a3ed8c5b46e5d9.js",
+      "static/chunks/webpack-32970f49c55a50a3.js",
+      "static/chunks/fd9d1056-7fa5ec8491e7e8ff.js",
+      "static/chunks/69-48497c144e9f467b.js",
       "static/chunks/main-app-feca94e8553c52ef.js",
-      "static/chunks/app/_not-found-d2abee0814a77c54.js"
+      "static/chunks/app/_not-found-b98fbea5304f07d9.js"
     ],
     "/layout": [
-      "static/chunks/webpack-364c1b1262e69496.js",
-      "static/chunks/fd9d1056-f76b5d13a7ed26bc.js",
-      "static/chunks/69-f8a3ed8c5b46e5d9.js",
+      "static/chunks/webpack-32970f49c55a50a3.js",
+      "static/chunks/fd9d1056-7fa5ec8491e7e8ff.js",
+      "static/chunks/69-48497c144e9f467b.js",
       "static/chunks/main-app-feca94e8553c52ef.js",
-      "static/css/fdb3f6654f15cead.css",
-      "static/chunks/app/layout-ed56fa3f24c13c15.js"
+      "static/css/567a02fa6c0efd4e.css",
+      "static/chunks/app/layout-897b54a061e65ae4.js"
     ],
     "/page": [
-      "static/chunks/webpack-364c1b1262e69496.js",
-      "static/chunks/fd9d1056-f76b5d13a7ed26bc.js",
-      "static/chunks/69-f8a3ed8c5b46e5d9.js",
+      "static/chunks/webpack-32970f49c55a50a3.js",
+      "static/chunks/fd9d1056-7fa5ec8491e7e8ff.js",
+      "static/chunks/69-48497c144e9f467b.js",
       "static/chunks/main-app-feca94e8553c52ef.js",
-      "static/chunks/95-12e3a19c871aec44.js",
-      "static/chunks/app/page-b978288f21614a6f.js"
+      "static/chunks/250-be98a7b9e1372608.js",
+      "static/chunks/485-b2dd0da0365cd76c.js",
+      "static/chunks/app/page-38ee98c7427730b5.js"
+    ],
+    "/blog/[id]/page": [
+      "static/chunks/webpack-32970f49c55a50a3.js",
+      "static/chunks/fd9d1056-7fa5ec8491e7e8ff.js",
+      "static/chunks/69-48497c144e9f467b.js",
+      "static/chunks/main-app-feca94e8553c52ef.js",
+      "static/chunks/250-be98a7b9e1372608.js",
+      "static/chunks/app/blog/[id]/page-0cb625a4bd2b3867.js"
     ]
   }
 }
