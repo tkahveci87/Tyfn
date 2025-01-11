@@ -40,10 +40,10 @@ const BinaryColumn = ({ delay, height }: { delay: number, height: number }) => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ 
         y: height,
-        opacity: [0, 0.8, 0.8, 0],
+        opacity: [0, 0.9, 0.9, 0],
       }}
       transition={{
-        duration: Math.random() * 8 + 12, // Biraz daha yavaş
+        duration: Math.random() * 8 + 12,
         delay,
         repeat: Infinity,
         ease: "linear"
@@ -52,8 +52,8 @@ const BinaryColumn = ({ delay, height }: { delay: number, height: number }) => {
       {chars.map((char, i) => (
         <motion.div
           key={i}
-          className="text-white/20"
-          animate={{ opacity: [0.1, 0.4, 0.1] }}
+          className="text-white/30"
+          animate={{ opacity: [0.2, 0.5, 0.2] }}
           transition={{
             duration: 1.5,
             delay: i * 0.08,
@@ -97,8 +97,8 @@ const MatrixColumn = ({ delay, height }: { delay: number, height: number }) => {
       {chars.map((char, i) => (
         <motion.div
           key={i}
-          className="text-red-500/30"
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          className="text-red-500/40"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
           transition={{
             duration: 2,
             delay: i * 0.1,
@@ -199,16 +199,16 @@ export default function TechBackground() {
         </motion.div>
       ))}
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)] z-20" />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-red-950/20 to-black/95 z-20" />
+      {/* Gradient overlays - Daha hafif tonlar */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] z-20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-red-950/20 to-black/80 z-20" />
       <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(220,38,38,0.1)_50%,transparent_75%)] bg-[length:200%_200%] animate-gradient-shift z-20" />
       
-      {/* Sol taraf için ekstra gradient */}
+      {/* Sol taraf için ekstra gradient - Daha hafif */}
       <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white/5 to-transparent z-10" />
       
-      {/* Hafif blur efekti */}
-      <div className="absolute inset-0 backdrop-blur-[1px] z-20" />
+      {/* Daha hafif blur efekti */}
+      <div className="absolute inset-0 backdrop-blur-[0.5px] z-20" />
     </div>
   )
 } 

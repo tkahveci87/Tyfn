@@ -12,8 +12,8 @@ export default function Hero() {
       <Navigation />
       <TechBackground />
       
-      {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20" />
+      {/* Grid pattern - daha az opak */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10" />
       
       {/* Content */}
       <motion.div 
