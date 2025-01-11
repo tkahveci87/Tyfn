@@ -30,7 +30,7 @@ export default function Navigation() {
         onClick={toggleMenu}
         className="fixed top-6 right-6 z-50 p-2 lg:hidden"
       >
-        <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+        <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-red-950/30 to-red-900/20 backdrop-blur-sm border border-white/10 flex items-center justify-center">
           <motion.div
             className="w-6 h-5 flex flex-col justify-between"
             animate={isOpen ? "open" : "closed"}
@@ -68,7 +68,7 @@ export default function Navigation() {
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className="bg-gradient-to-br from-black/90 via-black/95 to-orange-950/90 backdrop-blur-md rounded-xl px-8 py-4 border border-white/10"
+          className="bg-gradient-to-br from-black/95 via-red-950/90 to-black/95 backdrop-blur-md rounded-xl px-8 py-4 border border-red-900/20"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -92,7 +92,7 @@ export default function Navigation() {
                   <AnimatePresence>
                     {activeItem === item.name && (
                       <motion.span
-                        className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-orange-600/5 rounded-lg -z-10"
+                        className="absolute inset-0 bg-gradient-to-br from-red-800/10 to-red-900/5 rounded-lg -z-10"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
@@ -101,7 +101,7 @@ export default function Navigation() {
                     )}
                   </AnimatePresence>
                   <motion.span 
-                    className="absolute left-0 -bottom-1 h-0.5 bg-gradient-to-r from-orange-500 to-orange-300"
+                    className="absolute left-0 -bottom-1 h-0.5 bg-gradient-to-r from-red-700 to-red-500"
                     initial={{ width: 0 }}
                     animate={{ width: activeItem === item.name ? '100%' : 0 }}
                     transition={{ duration: 0.2 }}
@@ -124,7 +124,7 @@ export default function Navigation() {
           >
             {/* Arka plan blur ve gradient */}
             <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/95 to-orange-950/90 backdrop-blur-md"
+              className="absolute inset-0 bg-gradient-to-br from-black/95 via-red-950/90 to-black/95 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -158,7 +158,7 @@ export default function Navigation() {
                       className="relative text-white/80 hover:text-white font-space text-3xl tracking-wider group"
                     >
                       {item.name}
-                      <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-orange-300 group-hover:w-full transition-all duration-300" />
+                      <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-red-700 to-red-500 group-hover:w-full transition-all duration-300" />
                     </Link>
                   </motion.li>
                 ))}
