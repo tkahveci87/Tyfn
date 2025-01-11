@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const icons = [
@@ -13,6 +14,25 @@ const icons = [
 ]
 
 export default function TechBackground() {
+  const [dimensions, setDimensions] = useState({ width: 1000, height: 1000 })
+
+  useEffect(() => {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    })
+
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {icons.map((item, index) => (
@@ -21,13 +41,13 @@ export default function TechBackground() {
           className="absolute text-white/10 text-6xl"
           initial={{ 
             opacity: 0,
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight
+            x: Math.random() * dimensions.width,
+            y: Math.random() * dimensions.height
           }}
           animate={{
             opacity: [0, 1, 0],
-            x: [null, Math.random() * window.innerWidth],
-            y: [null, Math.random() * window.innerHeight],
+            x: [null, Math.random() * dimensions.width],
+            y: [null, Math.random() * dimensions.height],
           }}
           transition={{
             duration: 15,
