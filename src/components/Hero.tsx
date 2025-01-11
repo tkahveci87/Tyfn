@@ -2,10 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import TechBackground from './TechBackground'
+import Logo from './Logo'
 
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <Logo />
       <TechBackground />
       
       {/* Grid pattern */}
