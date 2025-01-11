@@ -68,7 +68,7 @@ export default function Navigation() {
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className="bg-gradient-to-r from-black/80 to-black/60 backdrop-blur-md rounded-2xl px-8 py-4 border border-white/10"
+          className="bg-gradient-to-br from-black/90 via-black/95 to-orange-950/90 backdrop-blur-md rounded-xl px-8 py-4 border border-white/10"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -86,13 +86,13 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className="text-white/80 hover:text-white font-space text-sm tracking-wider transition-colors duration-300 py-2 px-1"
+                  className="relative text-white/80 hover:text-white font-space text-sm tracking-wider transition-all duration-300 py-2 px-1 group"
                 >
                   {item.name}
                   <AnimatePresence>
                     {activeItem === item.name && (
                       <motion.span
-                        className="absolute inset-0 bg-orange-500/10 rounded-lg -z-10"
+                        className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-orange-600/5 rounded-lg -z-10"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
@@ -101,7 +101,7 @@ export default function Navigation() {
                     )}
                   </AnimatePresence>
                   <motion.span 
-                    className="absolute left-0 bottom-0 h-0.5 bg-orange-500"
+                    className="absolute left-0 -bottom-1 h-0.5 bg-gradient-to-r from-orange-500 to-orange-300"
                     initial={{ width: 0 }}
                     animate={{ width: activeItem === item.name ? '100%' : 0 }}
                     transition={{ duration: 0.2 }}
