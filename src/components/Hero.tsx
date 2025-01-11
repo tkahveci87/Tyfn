@@ -1,13 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import TechBackground from './TechBackground'
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 via-red-500/30 to-pink-500/30 backdrop-blur-[1px]" />
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <TechBackground />
       
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20" />
+      
+      {/* Content */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
