@@ -18,8 +18,54 @@ const techIcons = [
   { icon: '||',   color: 'text-red-500', size: 'text-3xl', title: 'Or' },
 ]
 
-// Matrix karakterleri
+// Matrix ve Binary karakterleri
 const matrixChars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
+const binaryChars = '01'
+
+// Binary sütunu bileşeni
+const BinaryColumn = ({ delay, height }: { delay: number, height: number }) => {
+  const [chars, setChars] = useState<string[]>([])
+
+  useEffect(() => {
+    const length = Math.floor(Math.random() * 20) + 15 // Daha uzun sütunlar
+    const newChars = Array(length).fill('').map(() => 
+      binaryChars[Math.floor(Math.random() * binaryChars.length)]
+    )
+    setChars(newChars)
+  }, [])
+
+  return (
+    <motion.div
+      className="absolute top-0 text-sm font-mono leading-none whitespace-pre select-none"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ 
+        y: height,
+        opacity: [0, 0.8, 0.8, 0],
+      }}
+      transition={{
+        duration: Math.random() * 8 + 12, // Biraz daha yavaş
+        delay,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+    >
+      {chars.map((char, i) => (
+        <motion.div
+          key={i}
+          className="text-white/20"
+          animate={{ opacity: [0.1, 0.4, 0.1] }}
+          transition={{
+            duration: 1.5,
+            delay: i * 0.08,
+            repeat: Infinity,
+          }}
+        >
+          {char}
+        </motion.div>
+      ))}
+    </motion.div>
+  )
+}
 
 // Matrix sütunu bileşeni
 const MatrixColumn = ({ delay, height }: { delay: number, height: number }) => {
@@ -70,11 +116,17 @@ const MatrixColumn = ({ delay, height }: { delay: number, height: number }) => {
 export default function TechBackground() {
   const [dimensions, setDimensions] = useState({ width: 1000, height: 1000 })
   const [matrixColumns, setMatrixColumns] = useState<number[]>([])
+  const [binaryColumns, setBinaryColumns] = useState<number[]>([])
 
-  const initializeMatrix = useCallback(() => {
-    const columnCount = Math.floor(dimensions.width / 20) // Her 20px'de bir sütun
-    const columns = Array(columnCount).fill(0).map((_, i) => i * 20)
-    setMatrixColumns(columns)
+  const initializeColumns = useCallback(() => {
+    // Matrix sütunları
+    const matrixColumnCount = Math.floor(dimensions.width / 20)
+    const matrixCols = Array(matrixColumnCount).fill(0).map((_, i) => i * 20)
+    setMatrixColumns(matrixCols)
+
+    // Binary sütunları (sol tarafta 5 sütun)
+    const binaryCols = Array(5).fill(0).map((_, i) => i * 15)
+    setBinaryColumns(binaryCols)
   }, [dimensions.width])
 
   useEffect(() => {
@@ -95,8 +147,8 @@ export default function TechBackground() {
   }, [])
 
   useEffect(() => {
-    initializeMatrix()
-  }, [initializeMatrix])
+    initializeColumns()
+  }, [initializeColumns])
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -105,6 +157,15 @@ export default function TechBackground() {
         {matrixColumns.map((x, i) => (
           <div key={i} style={{ position: 'absolute', left: `${x}px` }}>
             <MatrixColumn delay={i * 0.15} height={dimensions.height + 100} />
+          </div>
+        ))}
+      </div>
+
+      {/* Binary Rain Efekti - Sol taraf */}
+      <div className="absolute left-8 top-0 bottom-0 w-24">
+        {binaryColumns.map((x, i) => (
+          <div key={`binary-${i}`} style={{ position: 'absolute', left: `${x}px` }}>
+            <BinaryColumn delay={i * 0.3} height={dimensions.height + 100} />
           </div>
         ))}
       </div>
@@ -142,6 +203,9 @@ export default function TechBackground() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)] z-20" />
       <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-red-950/20 to-black/95 z-20" />
       <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(220,38,38,0.1)_50%,transparent_75%)] bg-[length:200%_200%] animate-gradient-shift z-20" />
+      
+      {/* Sol taraf için ekstra gradient */}
+      <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white/5 to-transparent z-10" />
       
       {/* Hafif blur efekti */}
       <div className="absolute inset-0 backdrop-blur-[1px] z-20" />
