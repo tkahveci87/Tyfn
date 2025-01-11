@@ -38,7 +38,7 @@ export default function TechBackground() {
       {icons.map((item, index) => (
         <motion.div
           key={index}
-          className="absolute text-white/10 text-6xl"
+          className="absolute text-white/5 text-6xl"
           initial={{ 
             opacity: 0,
             x: Math.random() * dimensions.width,
@@ -60,8 +60,11 @@ export default function TechBackground() {
         </motion.div>
       ))}
       
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/80 via-red-500/80 to-pink-500/80" />
+      {/* Yeni gradient overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/30 to-black" />
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(220,38,38,0.1)_50%,transparent_75%)] bg-[length:200%_200%] animate-gradient-shift" />
+      <div className="absolute inset-0 backdrop-blur-[1px]" />
     </div>
   )
 } 
