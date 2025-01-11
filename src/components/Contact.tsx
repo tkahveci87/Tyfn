@@ -15,15 +15,15 @@ export default function Contact() {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID', // EmailJS Service ID
-        'YOUR_TEMPLATE_ID', // EmailJS Template ID
+        'service_jh30bwy', // EmailJS Service ID
+        'template_4hy2rbh', // EmailJS Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_name: 'Tyfn Kahveci',
         },
-        'YOUR_PUBLIC_KEY' // EmailJS Public Key
+        '4ul-OyH0NMHQXa6VF' // EmailJS Public Key
       )
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
@@ -41,7 +41,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-gray-50 scroll-mt-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">İletişim</h2>
         <div className="max-w-lg mx-auto">
